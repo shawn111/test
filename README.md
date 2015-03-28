@@ -9,5 +9,5 @@ https://github.com/zyga/git-lp
 
 ## Tutorial
 
-    bzr push lp:~shawn111/+junk/gitub_lp
+    bzr push lp:~shawn111/+junk/github_lp
 
