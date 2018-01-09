@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: jangrewe/gitlab-ci-android
+
+    steps:
+      - checkout
+      - run: apt install openssh-client
+      - run: mkdir -p ~/.ssh
+      - run: chmod 700 ~/.ssh
+      - run: ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
+      - run: chmod 644 ~/.ssh/known_hosts
+      - run: git config --global user.email "ci@biggo.com"
+      - run: git config --global user.name "CI"
+      - run: ssh git@gitlab.com
+      - run: git clone git@gitlab.com:biggo/BigGoAndroidAPP.git
